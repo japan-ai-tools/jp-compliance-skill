@@ -1,0 +1,146 @@
+{
+  "tool": "jpcheck",
+  "version": "0.1.0",
+  "check": "ad",
+  "summary": {
+    "error": 2,
+    "warning": 4,
+    "info": 2
+  },
+  "findings": [
+    {
+      "id": "ad-001",
+      "rule": "KEIHYO_STEALTH_NO_DISCLOSURE",
+      "severity": "error",
+      "message_en": "Promotional content (affiliate link or sponsored wording) with no ad disclosure. If the advertiser was involved in this content, an ad that consumers cannot recognise as an ad may violate the Premiums and Representations Act (stealth-marketing notice, since 2023-10-01).",
+      "message_ja": "アフィリエイトのリンク、または提供を受けた旨の言葉があるのに、広告である印がありません。広告主が関わった表示なら、広告と分からない広告(ステマ)として景品表示法違反のおそれがあります(2023年10月1日から)。",
+      "fix_en": "Put a clear marker such as 【PR】 / 広告 / プロモーション at the beginning, where readers see it first.",
+      "fix_ja": "冒頭の目に入る所に【PR】・広告・プロモーションなどの印を入れる。",
+      "law": "景品表示法 第5条第3号・ステルスマーケティング告示(2023-10-01 施行)",
+      "source": "https://www.caa.go.jp/policies/policy/representation/fair_labeling/stealth_marketing/",
+      "evidence": {
+        "line": 7,
+        "text": "購入はこちら → https://px.a8.net/svt/ejp?a8mat=3T9A2B+1C2D3E+0K34+5YJRM"
+      },
+      "needs_review": true
+    },
+    {
+      "id": "ad-002",
+      "rule": "KEIHYO_NO1_NO_BASIS",
+      "severity": "error",
+      "message_en": "Superlative/ranking claim 'No.1' with no basis (survey, period, target) nearby. The CAA 2024 survey report treats No.1 claims without an objective, fair survey as misleading.",
+      "message_ja": "「No.1」という順位・一番の言い方の近くに、根拠(調査の名前・期間・対象)がありません。消費者庁は2024年の報告書で、客観的で公正な調査がない No.1 表示は不当表示のおそれがあると示しています。",
+      "fix_en": "Delete it, or add the survey name, period, comparison target and who surveyed, right next to it.",
+      "fix_ja": "消すか、すぐ近くに調査の名前・期間・比べた対象・調べた人を書く。",
+      "law": "景品表示法 第5条第1号(優良誤認)・第7条第2項(合理的な根拠)",
+      "source": "https://www.caa.go.jp/policies/policy/representation/fair_labeling/survey",
+      "evidence": {
+        "line": 4,
+        "text": "満足度No.1の美容液です。"
+      },
+      "needs_review": true
+    },
+    {
+      "id": "ad-003",
+      "rule": "KEIHYO_ABSOLUTE_CLAIM",
+      "severity": "warning",
+      "message_en": "Absolute claim '絶対に'. Results that vary by person cannot be promised; the CAA can require reasonable evidence within 15 days.",
+      "message_ja": "「絶対に」は言い切りです。人によって結果が違う物を約束する言い方は優良誤認のおそれがあり、消費者庁は15日以内に合理的な根拠を出すよう求めることができます。",
+      "fix_en": "State only what you can prove, with conditions.",
+      "fix_ja": "確かめた事実だけを、条件つきで書く。",
+      "law": "景品表示法 第5条第1号・第7条第2項",
+      "source": "https://www.caa.go.jp/policies/policy/representation/fair_labeling/",
+      "evidence": {
+        "line": 3,
+        "text": "実際に1か月使ったら、シミが絶対に消えました!"
+      },
+      "needs_review": true
+    },
+    {
+      "id": "ad-004",
+      "rule": "KEIHYO_DOUBLE_PRICE",
+      "severity": "warning",
+      "message_en": "Comparison/discount price '通常価格'. Our 'regular price' must be a price actually sold for a substantial recent period (guideline yardstick: more than half of the 8 weeks before the sale - or of the whole sales period if shorter - at least 2 weeks in total, and not more than 2 weeks since it was last sold at that price). A manufacturer's suggested price must be one the manufacturer really published; a 'market price' needs proof of the actual market. Otherwise it may be misleading (有利誤認).",
+      "message_ja": "「通常価格」は比べる値段の表示です。「当社通常価格」と書けるのは、最近の相当期間に実際に売っていた値段だけです(目安: セール開始からさかのぼる8週間(販売が8週間より短ければその期間)の過半で、通算2週間以上、かつその値段で最後に売った日から2週間以内)。希望小売価格はメーカーが本当に公表した値段、市場価格は実際の相場の根拠が要ります。そうでなければ有利誤認のおそれがあります。",
+      "fix_en": "Show the actual price flow instead (e.g. 'first month ¥100, then ¥980/month').",
+      "fix_ja": "実際の料金の流れで書く(例「初月100円、2か月目から月980円」)。",
+      "law": "景品表示法 第5条第2号・価格表示ガイドライン",
+      "source": "https://www.caa.go.jp/policies/policy/representation/fair_labeling/representation_regulation/double_price",
+      "evidence": {
+        "line": 5,
+        "text": "通常価格9,800円が、今だけ50%OFF!先着100名限定。"
+      },
+      "needs_review": true
+    },
+    {
+      "id": "ad-005",
+      "rule": "KEIHYO_DOUBLE_PRICE",
+      "severity": "warning",
+      "message_en": "Comparison/discount price '50%OFF'. Our 'regular price' must be a price actually sold for a substantial recent period (guideline yardstick: more than half of the 8 weeks before the sale - or of the whole sales period if shorter - at least 2 weeks in total, and not more than 2 weeks since it was last sold at that price). A manufacturer's suggested price must be one the manufacturer really published; a 'market price' needs proof of the actual market. Otherwise it may be misleading (有利誤認).",
+      "message_ja": "「50%OFF」は比べる値段の表示です。「当社通常価格」と書けるのは、最近の相当期間に実際に売っていた値段だけです(目安: セール開始からさかのぼる8週間(販売が8週間より短ければその期間)の過半で、通算2週間以上、かつその値段で最後に売った日から2週間以内)。希望小売価格はメーカーが本当に公表した値段、市場価格は実際の相場の根拠が要ります。そうでなければ有利誤認のおそれがあります。",
+      "fix_en": "Show the actual price flow instead (e.g. 'first month ¥100, then ¥980/month').",
+      "fix_ja": "実際の料金の流れで書く(例「初月100円、2か月目から月980円」)。",
+      "law": "景品表示法 第5条第2号・価格表示ガイドライン",
+      "source": "https://www.caa.go.jp/policies/policy/representation/fair_labeling/representation_regulation/double_price",
+      "evidence": {
+        "line": 5,
+        "text": "通常価格9,800円が、今だけ50%OFF!先着100名限定。"
+      },
+      "needs_review": true
+    },
+    {
+      "id": "ad-006",
+      "rule": "KEIHYO_SCARCITY",
+      "severity": "info",
+      "message_en": "Limited-offer wording '今だけ'. It must be true (real stock / real deadline, ended on time).",
+      "message_ja": "「今だけ」は数や期限で区切る言い方です。本当の数・本当の期限であること(過ぎたら終える)。",
+      "fix_en": "Keep the count and deadline real; do not extend silently.",
+      "fix_ja": "数と期限を本当に守る。黙って延ばさない。",
+      "law": "景品表示法 第5条第2号",
+      "source": "https://www.caa.go.jp/policies/policy/representation/fair_labeling/",
+      "evidence": {
+        "line": 5,
+        "text": "通常価格9,800円が、今だけ50%OFF!先着100名限定。"
+      },
+      "needs_review": true
+    },
+    {
+      "id": "ad-007",
+      "rule": "KEIHYO_SCARCITY",
+      "severity": "info",
+      "message_en": "Limited-offer wording '先着1'. It must be true (real stock / real deadline, ended on time).",
+      "message_ja": "「先着1」は数や期限で区切る言い方です。本当の数・本当の期限であること(過ぎたら終える)。",
+      "fix_en": "Keep the count and deadline real; do not extend silently.",
+      "fix_ja": "数と期限を本当に守る。黙って延ばさない。",
+      "law": "景品表示法 第5条第2号",
+      "source": "https://www.caa.go.jp/policies/policy/representation/fair_labeling/",
+      "evidence": {
+        "line": 5,
+        "text": "通常価格9,800円が、今だけ50%OFF!先着100名限定。"
+      },
+      "needs_review": true
+    },
+    {
+      "id": "ad-008",
+      "rule": "OUT_OF_SCOPE_HEALTH_CLAIM",
+      "severity": "warning",
+      "message_en": "Health/medical wording 'シミが絶対に消え'. Claims about curing or body effects are regulated by the Pharmaceutical and Medical Device Act and the Health Promotion Act. Not checked by this tool.",
+      "message_ja": "「シミが絶対に消え」は体への効き目の言い方です。薬機法・健康増進法の対象になり得ます。この道具では判断しません。",
+      "fix_en": "Have a specialist review it.",
+      "fix_ja": "専門家に確かめてもらう。",
+      "law": "薬機法 第66〜68条・健康増進法 第65条(この道具の範囲外)",
+      "source": "https://www.caa.go.jp/policies/policy/representation/fair_labeling/",
+      "evidence": {
+        "line": 3,
+        "text": "実際に1か月使ったら、シミが絶対に消えました!"
+      },
+      "needs_review": true
+    }
+  ],
+  "not_checked": [
+    "images and video (text only)",
+    "whether a survey or price history is real",
+    "industry-specific codes (公正競争規約)",
+    "Pharmaceutical Act / Health Promotion Act in detail"
+  ]
+}
