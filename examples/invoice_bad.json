@@ -1,0 +1,4 @@
+{"issuer": {"name": "株式会社サンプル商事", "registration_number": "T7123456789012"}, "date": "2026-10-28",
+ "buyer": {"name": "株式会社テスト"}, "price_basis": "exclusive",
+ "items": [{"description": "コピー用紙", "amount": 1999, "rate": 10}, {"description": "お茶", "amount": 1234, "rate": 8, "reduced": true}],
+ "totals": [{"rate": 10, "amount": 1999, "tax": 205}, {"rate": 8, "amount": 1234, "tax": 98}]}
